@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Weather App</title>
+
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto:400,300,100'>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+  <div id="content" class="center">
+  <div id="top">
+    <input id="city" type="text" value="Barnaul"  autocomplete="off"/>
+    <button id="search" type="submit" value="" class="fontawesome-search"></button>
+  </div>
+  <div id="middle">
+    <span id="icon">R</span>
+    <span id="temp">00</span>
+    <span class="degree">&deg;</span>
+    <span id="current_unit">C</span>
+    <span id="other_unit">F</span>
+    <div id="description">
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div id="bottom">
+    Метеоролическая информация <a href="http://openweathermap.org" target="_blank">OpenWeatherMap</a>
+
+  </div>
+</div>
+
+  <script src='http://codepen.io/assets/libs/fullpage/jquery.js'></script>
+
+  <script src="js/index.js"></script>
+
+</body>
+
+</html>
