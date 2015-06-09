@@ -7,10 +7,13 @@
 	H  I  G  H    T  E  C  H N  O  L  O  G  I  C , B  A  R  N  A  U  L   2 0 1 5
 -->
 <head>
-<link rel="stylesheet" type="text/css" href="./applewatch.css">
+<link rel="stylesheet" type="text/css" href="/kernel/applewatch.css">
+<link rel="stylesheet" type="text/css" href="/kernel/clock.css">
+<link rel="stylesheet" type="text/css" href="/kernel/notification/css/style.css">
 <style type="text/css">
+
 	#watch {
-		position: relative;
+		position: absolute;
 		z-index: 1;
 	}
 	#runningApp {
@@ -20,11 +23,13 @@
 	}
 	#crown {
 		position: relative;
-		left: 650px;
-		top: 190px;
-		width: 45px;
-		height: 110px;
-		background-color: transparent;
+		z-index: 1;
+		left: 0px;
+		top: -5px;
+		width: 32px;
+		height: 32px;
+		background-color: black;
+		background-image: url(/ui/starthere.png);
 		border: none;
 		-moz-user-select: -moz-none;
 		-khtml-user-select: none;
@@ -36,8 +41,26 @@
 		border: none;
 		outline: none;
 	}
+
+	#control {
+		position:absolute;
+		z-index: 0;
+		left: 0px;
+		top: 0px;
+		width: 375px;
+		height: 36px;
+		background-color: black;
+		border: none;
+		-moz-user-select: -moz-none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	
 </style>
 </head>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
 <body>
 <div id="background-image">
 	<div id="blackback" class="display"></div>
@@ -51,23 +74,48 @@
     	style="background-color:'black';">
     </svg>
     <button id="crown" />
+    <button id="control" />
 </div>
-
+<!-- Часы в верхнем баре -->
+<script type="text/javascript">
+function showTime()
+{
+  var dat = new Date();
+  var H = '' + dat.getHours();
+  H = H.length<2 ? '0' + H:H;
+  var M = '' + dat.getMinutes();
+  M = M.length<2 ? '0' + M:M;
+  var S = '' + dat.getSeconds();
+  S =S.length<2 ? '0' + S:S;
+  var clock = H + ':' + M + ':' + S;
+  document
+    .getElementById('time_div')
+      .innerHTML=clock;
+  setTimeout(showTime,1000); // перерисовать 1 раз в сек.
+}
+</script>
+<div id="time_div">
+</div>
+<script type="text/javascript">
+  showTime();
+</script>
+<!-- Часы в верхнем баре -->
 <!-- Launcher -->
-<script type="text/javascript" src="./Animation.js"></script>
-<script type="text/javascript" src="./Utility.js"></script>
-<script type="text/javascript" src="./IconType.js"></script>
-<script type="text/javascript" src="./AppCircle.js"></script>
-<script type="text/javascript" src="./Sentinel.js"></script>
-<script type="text/javascript" src="./Hexagon.js"></script>
-<script type="text/javascript" src="./Display.js"></script>
-<script type="text/javascript" src="./DragModule.js"></script>
-<script type="text/javascript" src="./ZoomModule.js"></script>
-<script type="text/javascript" src="./ClickModule.js"></script>
+<script type="text/javascript" src="/kernel/js/Animation.js"></script>
+<script type="text/javascript" src="/kernel/js/Utility.js"></script>
+<script type="text/javascript" src="/kernel/js/IconType.js"></script>
+<script type="text/javascript" src="/kernel/js/AppCircle.js"></script>
+<script type="text/javascript" src="/kernel/js/Sentinel.js"></script>
+<script type="text/javascript" src="/kernel/js/Hexagon.js"></script>
+<script type="text/javascript" src="/kernel/js/Display.js"></script>
+<script type="text/javascript" src="/kernel/js/DragModule.js"></script>
+<script type="text/javascript" src="/kernel/js/ZoomModule.js"></script>
+<script type="text/javascript" src="/kernel/js/ClickModule.js"></script>
 
 <!-- Apps -->
-<script type="text/javascript" src="./AppList.js"></script>
+<script type="text/javascript" src="/AppList.js"></script>
 
+<script type="text/javascript" src="/kernel/notification/js/script.js"></script>
 <script>
 var start = null;
 var startState = null;
@@ -79,8 +127,8 @@ var currentAnimationModule = null;
 for (var i =0; i< appList.length; i++) {
 	var app = appList[i];
 	var appName = app.name;
-	var cssAddr = "./apps/"+appName+"/"+appName+".css";
-	var jsAddr = "./apps/"+appName+"/"+appName+".js";
+	var cssAddr = "/apps/"+appName+"/"+appName+".css";
+	var jsAddr = "/apps/"+appName+"/"+appName+".js";
 	Utility.loadJsCssFile(jsAddr, "js");
 	Utility.loadJsCssFile(cssAddr, "css");
 }
@@ -90,13 +138,13 @@ window.onload = function() {
 	var origin = appList[0];
 	var hex = new Hexagon(new AppCircle(origin.name, origin.iconType));
 	
-	for (var i =1; i< appList.length; i++) {
+	for (var i = 1; i < appList.length; i++) {
 		var app = appList[i];
 		hex.addApp(new AppCircle(app.name, app.iconType));
 	}
-	for (var i = 0; i < 80; i++) {
-		hex.addApp(new AppCircle("anon", IconType.ANON));
-	}
+	//for (var i = 0; i < 12; i++) {
+	//	hex.addApp(new AppCircle("anon", IconType.ANON));
+	//}
 
 	var crown = document.getElementById("crown")
 
@@ -115,4 +163,15 @@ window.onload = function() {
 
 </script>
 </body>
+
+<button id="botShowPanel"></button>
+<div id="Mensajes"></div>
+</div>
+<script type="text/javascript">
+
+$("#botShowPanel").on("click", function () {
+    ShowCrystalNotificationPanel()
+});
+
+</script>
 </html>
