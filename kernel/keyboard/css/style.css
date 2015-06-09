@@ -1,0 +1,156 @@
+@font-face {
+  font-family: 'entypo';
+  font-style: 'normal';
+  font-weight: 'normal';
+  src: url("http://weloveiconfonts.com/api/fonts/entypo/entypo.eot");
+  src: url("http://weloveiconfonts.com/api/fonts/entypo/entypo.eot?#iefix") format("eot"), url("http://weloveiconfonts.com/api/fonts/entypo/entypo.woff") format("woff"), url("http://weloveiconfonts.com/api/fonts/entypo/entypo.ttf") format("truetype"), url("http://weloveiconfonts.com/api/fonts/entypo/entypo.svg#entypo") format("svg");
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #39E;
+}
+
+::selection {
+  background: transparent;
+}
+
+#frame {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 320px;
+  height: 195px;
+  margin: auto;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.15);
+  font-family: sans-serif;
+  font-size: 10pt;
+  color: #555;
+  text-align: center;
+  font-smoothing: antialiased;
+}
+#frame .keyboard {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #EEE;
+  overflow: hidden;
+}
+#frame .keyboard .input {
+  height: 35px;
+  background: #FAFAFA;
+}
+#frame .keyboard .input .camera {
+  cursor: pointer;
+  float: left;
+  width: 35px;
+  height: 35px;
+  font-family: 'entypo', sans-serif;
+  font-size: 15pt;
+  line-height: 35px;
+}
+#frame .keyboard .input .camera:before {
+  content: '\1F4F7';
+}
+#frame .keyboard .input input {
+  float: left;
+  width: calc(100% - 80px);
+  height: 26px;
+  padding: 0;
+  margin-top: 5px;
+  border-radius: 5px;
+  outline: 0;
+  border: 0;
+  background: #FFF;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+  font-family: sans-serif;
+  font-size: 10pt;
+  color: #555;
+  text-indent: 8px;
+  text-transform: capitalize;
+  font-smoothing: antialiased;
+}
+#frame .keyboard .input input::-webkit-input-placeholder {
+  color: #DDD;
+  text-transform: none;
+}
+#frame .keyboard .input .submit {
+  cursor: pointer;
+  float: right;
+  width: 45px;
+  height: 35px;
+  color: #39E;
+  font-weight: bold;
+  line-height: 35px;
+}
+#frame .keyboard [class*='row-'] {
+  display: flex;
+}
+#frame .keyboard [class*='row-'] li {
+  cursor: pointer;
+  width: 32px;
+  height: 40px;
+  box-shadow: inset -1px 1px rgba(0, 0, 0, 0.1);
+  transition: background .15s ease;
+  font-weight: bold;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+#frame .keyboard [class*='row-'] li:hover {
+  background: #FAFAFA;
+}
+#frame .keyboard [class*='row-'] li:last-child {
+  box-shadow: inset 0 1px rgba(0, 0, 0, 0.1);
+}
+#frame .keyboard [class*='row-'] li.char, #frame .keyboard [class*='row-'] li.keyboards, #frame .keyboard [class*='row-'] li.mic {
+  width: 38px;
+}
+#frame .keyboard [class*='row-'] li.char:before {
+  content: '123';
+}
+#frame .keyboard [class*='row-'] li.space {
+  width: 152px;
+  text-transform: lowercase;
+}
+#frame .keyboard [class*='row-'] li.space:before {
+  content: 'space';
+}
+#frame .keyboard [class*='row-'] li.return {
+  width: 76px;
+  text-transform: lowercase;
+}
+#frame .keyboard [class*='row-'] li.return:before {
+  content: 'return';
+}
+#frame .keyboard [class*='row-'] li.caps, #frame .keyboard [class*='row-'] li.delete, #frame .keyboard [class*='row-'] li.char, #frame .keyboard [class*='row-'] li.keyboards, #frame .keyboard [class*='row-'] li.mic, #frame .keyboard [class*='row-'] li.space, #frame .keyboard [class*='row-'] li.return {
+  background: #FAFAFA;
+  font-family: 'entypo', sans-serif;
+}
+#frame .keyboard [class*='row-'] li.caps:before {
+  content: '\E4AF';
+  font-size: 12pt;
+  font-weight: normal;
+}
+#frame .keyboard [class*='row-'] li.delete:before {
+  content: '\232B';
+  font-size: 12pt;
+  font-weight: normal;
+}
+#frame .keyboard [class*='row-'] li.keyboards:before {
+  content: '\1F30E';
+  font-size: 12pt;
+  font-weight: normal;
+}
+#frame .keyboard [class*='row-'] li.mic:before {
+  content: '\1F3A4';
+  font-size: 12pt;
+  font-weight: normal;
+}
+#frame .keyboard [class*='row-'].row-middle li {
+  width: 36px;
+}

@@ -1,0 +1,18 @@
+
+#time_div {
+	font-size:12pt;
+	color:rgb(236, 240, 241);
+	font-weight:600;
+	font-family:Verdana;
+	position:absolute;
+	z-index: 999;
+	left: 150px;
+	top: 8px;
+	border: none;
+		-moz-user-select: -moz-none;
+		-khtml-user-select: none;
+		-webkit-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+
+}

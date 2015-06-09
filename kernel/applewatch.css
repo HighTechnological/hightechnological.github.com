@@ -1,0 +1,40 @@
+<!--	
+	=====     =   =====   ======     ==  ==    =====         ======      ======
+	==             ==     ==   ==    ==  ==    ===           ==  ==      ===
+	==        =    ==     == ==      ==  ==       ===        ==  ==         ===
+	==        =    ==     ==  ==     ==  ==       ===        ==  ==         ===
+	=====     =    ==     ==   ==     ====     ======        ======      ======
+	H  I  G  H    T  E  C  H N  O  L  O  G  I  C , B  A  R  N  A  U  L   2 0 1 5
+-->
+html, body {
+	margin: 0;
+}
+
+#blackback {
+	background-color: black;
+-webkit-border-bottom-right-radius: 10px;
+-webkit-border-bottom-left-radius: 10px;
+-moz-border-radius-bottomright: 10px;
+-moz-border-radius-bottomleft: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
+
+}
+#watch {
+	
+}
+
+.display {
+	position: absolute;
+	left: 0px;
+	top: 36px;
+	width: 375px;
+	height: 470px;
+
+	-moz-user-select: -moz-none;
+	-khtml-user-selectc: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+

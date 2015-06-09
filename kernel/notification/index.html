@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Crystal Notifications</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="static/js/script.js"></script>
+<link media="screen" href="static/css/style.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<div align="center" class="opciones">
+<button id="botCrystal">Show a notification </button>
+<button id="botShowPanel">Show Notification Center </button>
+<button id="botGoogleMaps">Clear panel and show Panel and show a Map and youtube</button>
+<button id="botTimeOut">Notification with Timeouts an Callbacks!</button>
+<button id="botNotificationCenter">Send notifications directly to the Notification Center!</button><br />
+<div id="Mensajes"></div>
+</div>
+<script type="text/javascript">
+var DropCount = 1;
+$("#botCrystal").on("click", function () {
+    var b = "";
+    var a = "";
+    var c = "static/img/Colorfull/Dropbox-colorfull.png";
+    switch (DropCount) {
+    case 1:
+        b = "Dropbox";
+        a = "Get more space installing Crystal Notification... <br>(no, it's a lie), but press the button again.";
+        c = "static/img/Colorfull/Dropbox-colorfull.png";
+        DropCount = 2;
+        break;
+    case 2:
+        b = "Chrome";
+        a = "This is a Crystal notification. You also have a Notification Center! <br/>both are have responsive desing";
+        c = "static/img/Colorfull/Chrome-colorfull.png";
+        DropCount = 3;
+        break;
+    case 3:
+        b = "iMessage";
+        a = "You can add any HTML content in here! or in the panel. <br/>(More examples below)";
+        c = "static/img/Colorfull/Messages-colorfull.png";
+        DropCount = 4;
+        break;
+    case 4:
+        b = "Pocket Colorfull";
+        a = "The notification center, is touch enable and responsive too!";
+        c = "static/img/Colorfull/Pocket-colorfull.png";
+        DropCount = 5;
+        break;
+    case 5:
+        b = "Retina Display";
+        a = "Crystal Notification is Retina display ready";
+        c = "static/img/Colorfull/Rdio-colorfull.png";
+        DropCount = 1;
+        break
+    }
+    $.CrystalNotification({
+        title: b,
+        image: c,
+        content: a,
+        panelbutton: true,
+    })
+});
+$("#botShowPanel").on("click", function () {
+    ShowCrystalNotificationPanel()
+});
+$("#botGoogleMaps").on("click", function () {
+    NukeAllTheNotifications();
+    ShowCrystalNotificationPanel();
+    $.CrystalNotificationPanel({
+        title: "Google Maps",
+        image: "static/img/Colorfull/Google-Maps-128.png",
+        content: '<iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.es/maps?f=q&amp;source=s_q&amp;hl=es&amp;geocode=&amp;q=san+jose+costa+rica&amp;aq=&amp;sll=43.281204,-7.921143&amp;sspn=2.847262,5.811768&amp;ie=UTF8&amp;hq=&amp;hnear=San+Jos%C3%A9,+Costa+Rica&amp;ll=9.927128,-84.082012&amp;spn=0.060197,0.090809&amp;t=m&amp;z=14&amp;output=embed"></iframe>',
+    });
+    $.CrystalNotificationPanel({
+        title: "YouTube",
+        image: "static/img/Colorfull/YouTube-128.png",
+        content: '<iframe width="100%" height="315" src="http://www.youtube.com/embed/5EjG-1U3wqA" frameborder="0" allowfullscreen></iframe>'
+    })
+});
+$("#botTimeOut").on("click", function () {
+    $.CrystalNotification({
+        title: "Timeout",
+        image: "static/img/Colorfull/Google-Docs-colorfull.png",
+        content: "You can set timeout and callbacks!, enabled or disabled the notification panel from the notification, hide the close button if you want.",
+        panelbutton: false,
+        closebutton: false,
+        timeout: 3500,
+    }, function (b) {
+        clearTimeout(a);
+        $("#Mensajes").html("Callback call!");
+        $("#Mensajes").fadeIn(300);
+        var a = setTimeout(function () {
+            $("#Mensajes").fadeOut(300)
+        }, 3000)
+    })
+});
+var PanelCount = 1;
+$("#botNotificationCenter").on("click", function () {
+    var b = "";
+    var a = "";
+    var c = "static/img/Colorfull/Dropbox-colorfull.png";
+    for (i = 1; i < 6; i++) {
+        switch (PanelCount) {
+        case 1:
+            b = "Evernote";
+            a = "You can perform Callbacks on click!";
+            c = "static/img/Colorfull/Evernote-colorfull.png";
+            PanelCount = 2;
+            break;
+        case 2:
+            b = "Google Drive";
+            a = "You will have tutorials, examples and functions!";
+            c = "static/img/Colorfull/Google-Drive-colorfull.png";
+            PanelCount = 3;
+            break;
+        case 3:
+            b = "Google Play";
+            a = "The scroll feels native on mobile phones, specially on iPhone and iPads";
+            c = "static/img/Colorfull/Google-Play-colorfull.png";
+            PanelCount = 4;
+            break;
+        case 4:
+            b = "Skype";
+            a = "This looks very well in your site, is impossible to not been notice.";
+            c = "static/img/Colorfull/Skype-colorfull.png";
+            PanelCount = 5;
+            break;
+        case 5:
+            b = "Spotify";
+            a = "Images, icons, custom HTML content... what else do you need?";
+            c = "static/img/Colorfull/Spotify-colorfull.png";
+            PanelCount = 1;
+            break
+        }
+        if (i == 1) {
+            $.CrystalNotificationPanel({
+                title: b,
+                image: c,
+                content: a,
+                panelbutton: true,
+            }, function (e) {
+                clearTimeout(d);
+                $("#Mensajes").html("Callback call!");
+                $("#Mensajes").fadeIn(300);
+                var d = setTimeout(function () {
+                    $("#Mensajes").fadeOut(300)
+                }, 3000)
+            })
+        } else {
+            $.CrystalNotificationPanel({
+                title: b,
+                image: c,
+                content: a,
+                panelbutton: true,
+            })
+        }
+    }
+    ShowCrystalNotificationPanel()
+});//Posted by Dospel & GanjaParker
+</script>
+</body>
+</html>
