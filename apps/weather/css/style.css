@@ -20,6 +20,9 @@
 
 
 html,body {
+  height: 470px;
+  width: 375px;
+  overflow: hidden;
   margin:0px;
   padding:0px;
   font-family:'Roboto';
@@ -28,7 +31,7 @@ html,body {
 }
 
 body {
-  background:rgb(224,225,227);
+  background: #ecf0f1;
 }
 
 a {
@@ -45,13 +48,17 @@ a {
 }
 
 #content {
+  height: 470px;
+  width: 375px;
+  overflow: hidden;
   color:#aaabaf;
-  background:#2C2D38;
-  background:rgb(29,32,40);
-  height:320px;
-  width:320px;
-  padding:30px;
-  border-radius:10px;
+  background:black;
+-webkit-border-bottom-right-radius: 10px;
+-webkit-border-bottom-left-radius: 10px;
+-moz-border-radius-bottomright: 10px;
+-moz-border-radius-bottomleft: 10px;
+border-bottom-right-radius: 10px;
+border-bottom-left-radius: 10px;
 }
 
 #top {
@@ -72,7 +79,7 @@ a {
   opacity:0;
   float:right;
   border:none;
-  background:#111216;
+  background:black;
   padding:8px 14px 8px 14px;
   font-size:24px;
   border-radius:4px;
@@ -87,10 +94,10 @@ a {
     color:white;
 }
 
-#middle {
+#middle { /*Текст*/
   margin-top:40px;
   font-size:100px;
-  color:#ececec;
+  color:#ecf0f1;
   font-weight:300;
 }
 
@@ -179,10 +186,11 @@ a {
 }
 
 #bottom {
+  margin-left:auto;
+  margin-right:auto;
   bottom:0;
   position:absolute;
-  margin:10px;
-  width:100%;
+  width:375px;
   color:#66676c;
   font-size:10px;
 }

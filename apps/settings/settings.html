@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Settings</title>
+
+    <style>
+@import url(http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700);
+
+body, html{
+    margin: 0;
+    padding: 0;
+    font-family: 'Fira Sans', sans-serif;
+    overflow: hidden;
+}
+body{
+    color: black;
+}
+.wrap{
+    height: 470px;
+    width: 375px;
+    overflow: hidden;
+    position: relative;
+    margin: 0px auto;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+}
+header{}
+header h1{}
+section{}
+section h3{}
+section button{}
+footer{}
+.block {
+    width: 33.333%;
+    height: 470px;
+    display: inline-block;
+    float: left;
+    padding-bottom: 15px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.foot-page {
+    position: absolute;
+    bottom: 0;
+    height: 9.7%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #000;
+    border-top: 1px solid #222;
+}
+.container {
+    height: 100%;
+    width: 300%;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+}
+
+.button, .button:hover, .button:visited{
+    width: 33.333%;
+    height: 100%;
+    display: inline-block;
+    margin: 0;
+    padding: 16px 0;
+    box-sizing: border-box;
+    float: left;
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    text-align: center;
+    color: #fff;
+}
+.button.active{
+    border-bottom: 2px solid #ecf0f1;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ecf0f1;
+}
+.button:active, .button:hover{
+    background-color: #e74c3c;
+    border-radius: 10px;
+    color: #fff;
+}
+.timmer{
+    padding: 40px 0 20px 10px;
+    margin: 0;
+    box-sizing: border-box;
+}
+#crono{
+    font-size: 88px;
+    letter-spacing: 0px;
+    width: 100%;
+    color: #ddd;
+    font-weight: 400;
+}
+.a-count{
+    font-size: 105px;
+    color: #ddd;
+    font-weight: 400;
+    margin: auto;
+    padding: 20px 0 0 15px;
+}
+.a-count small{ 
+    font-size: 0.3em;
+    vertical-align: text-top;
+}
+.fecha{
+    padding: 14px 0 0 15px;
+    font-size: 22px;
+    font-weight: 400;
+}
+.fecha strong{
+    font-weight: 400;
+    color: #ecf0f1;
+}
+.btn{
+    width: 46%;
+    border-radius: 30px;
+    border: 0 solid;
+    padding: 10px 0 8px 0;
+    margin: 0  2%;
+    font-size: 17px;
+    font-weight: 400;
+    text-align: center;
+    float: left;
+    text-decoration: none;
+    color: #333;
+    background-color: #ddd;
+    box-sizing: border-box;   
+}
+.btn.active{
+    background-color: #c0392b; /*Темно красный*/
+    color: #fff;
+}
+.btn.disabled{
+    background-color: #c0392b; /*Темно красный*/
+    color: #fff;
+}
+.btn.disabled:hover{
+    cursor: default;
+}
+.btn.disabled:active{
+    background-color: #ecf0f1;
+}
+#inicializar.active{
+    background-color: #f74839;
+}
+.btn:active{
+    background-color: #ecf0f1;
+    color: #fff;
+}
+.lap{
+    width: 100%;
+    height: 160px;  
+    margin-top: 55px;
+}
+.overflow-y{
+    overflow-y: auto;
+}
+.overflow-y::-webkit-scrollbar-thumb{
+	border-radius: 8px;
+    border: 1px solid #888;	
+	background-color: #0f1010;
+    box-sizing: border-box;
+}
+.overflow-y::-webkit-scrollbar{
+    width: 8px;
+	background-color: #0F1010;
+}
+#series{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 23px;
+    color: #ddd;
+}
+#series li{
+    padding: 20px;  
+    border-top: 1px solid #333;
+}
+#series li span{
+    float: right;
+    width: 32%;
+    letter-spacing: 2px;
+    font-size: 20px;
+    font-weight: 400;
+    margin: auto;
+}
+#reloj{ 
+    width: 315px; 
+    height: 315px;
+    position: relative;
+    background: #222;
+    box-sizing: border-box;
+    border-radius: 100%;
+    border: 8px solid #ecf0f1;
+    margin: 40px auto;
+}
+#reloj .aguja{
+    height: 100%;
+    width: 2px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+}
+.circulo{}
+.segundo{  
+    z-index: 999;
+}
+.minuto{
+    width: 2px;
+}
+.hora{
+}
+.segundo hr{
+    position: relative;
+    top: 38px;
+    height: 30%;
+    border: 1px solid #e74c3c;
+    border-radius: 8px/50px;
+}
+.minuto hr{
+    position: relative;
+    top: 18px;
+    height: 38%;
+    border: 2px solid #999;
+    border-radius: 10px/50px;  
+}
+.hora hr{
+    position: relative;
+    top: 52px;
+    height: 25%;
+    border: 1px solid #ecf0f1;    
+    border-radius: 5px/50px;
+}
+.vert{
+    position: absolute;
+    width: 3px;
+    height: 10px;
+    background: #fff;
+    margin: 0 auto;
+}
+.hor{
+    position: absolute;
+    width: 10px;
+    height: 3px;
+    background: #fff;
+    margin: auto 0;
+}
+.arriba{  
+    left: 0;
+    right: 0;
+}
+.abajo{
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.izquierda{
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+.derecha{
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+.sombra {
+    height: 250px;
+    width: 250px;
+    position: absolute;
+    left: 80px;
+    top: 80px;
+    transform: rotate(135deg);
+    background: rgba(0, 0, 0, 0.1);
+  }
+.punto{
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #ff877d;
+    border-radius: 100%;
+    z-index: 999;
+}
+.state-bar {
+    background-color: #1F272D;
+    width: 320px;
+    height: 30px;
+    position: relative;
+}
+.b-count, .bat{
+    width: 40px;
+    height: 24px;
+    padding-top: 5px;
+    font-size: 15px;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    float: right;
+    position: relative;
+    vertical-align: middle;
+}
+.b-count{
+    padding: 6px 2px 0 0;
+}
+.bat-1, .bat-2{
+    border: 1px solid #fff;
+    box-sizing: border-box;
+    border-radius: 2px;
+    margin: auto;
+    position: absolute;
+}
+.bat-1{
+    width: 20px;
+    height: 10px;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background-color: #fff;
+}
+.bat-2{
+    width: 5px;
+    height: 5px;
+    top: 0; bottom: 1px; right: 8px;
+    background-color: #fff;
+}
+
+.t1, .t2{
+    width: 0;
+    height: 0;
+    border-style: solid;
+    transform: rotate(20deg);
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+}
+
+</style>
+
+    <script src="js/prefixfree.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/index.js"></script>
+</head>
+
+<body>
+  <!--
+Inspired by: 
+https://support.mozilla.org/en-US/kb/set-clock-alarm-firefox-os
+-->
+<div class="wrap">
+  <div class="container">
+    <section class="block">
+     <a href="#" class="btn" id="settings">Учетная запись</a>
+     <a href="#" class="btn" id="settings">Звуки</a>
+     <a href="#" class="btn" id="settings">Интерфейс</a>
+     <a href="#" class="btn2" id="settings">Об устройстве</a>
+    </section>
+    <section class="block">
+     
+    </section>
+    <section class="block">
+      
+    
+
+    </section>
+  </div>
+  <footer class="foot-page">
+    <a href="#" id="analog" class="button active">
+      Настройки
+    </a>
+    <a href="#" id="digital" class="button">
+      Приложения
+    </a>
+    <a href="#" id="cronomet" class="button">
+      Об устройстве
+    </a>
+  </footer>
+</div>
+
+  <script src='http://codepen.io/assets/libs/fullpage/zepto.js'></script>
+</body>
+
+</html>

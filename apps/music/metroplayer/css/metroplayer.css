@@ -1,0 +1,49 @@
+
+div#metro-wrapper{width:100%;-webkit-font-smoothing:antialiased;border:none;outline:none;font-family:HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", sans-serif;font-size:12px;color:#fff;margin:0;padding:0}
+div#metro-left{width:71%;height:100%;background:none;position:absolute;left:0;top:0;z-index:102}
+div#metro-left-overlay{width:100%;height:100%;background:black;position:absolute;left:0;top:0;z-index:101}
+div#metro-controls{margin-top:14%;width:95%;z-index:102}
+div#metro-controls ul li{display:inline-block}
+div#metro-controls ul li img:hover{opacity:0.6;cursor:pointer}
+div#metro-controls ul li#metro-play,div#metro-controls ul li#metro-pause{width:15%;margin-left:45%}
+div#metro-controls ul li#metro-prev,div#metro-controls ul li#metro-next{position:absolute;margin-top:20px}
+div#metro-controls ul li#metro-prev{margin-left:20%}
+div#metro-controls ul li#metro-next{margin-left:15%}
+div#metro-progress ul#track-info{list-style-type:none;width:85%;margin:6px 0 0 3%;padding:0}
+div#metro-progress ul#track-info li{display:inline-block;font-weight:700}
+div#metro-song-info{margin-top:7%;margin-left:3%}
+div#metro-song-info ul li{display:block;margin-bottom:10px}
+div#song-info-title{font-size:32px}
+div#song-info-artist{font-size:24px;font-weight:700}
+div#metro-playlist{
+	display:none;
+	width:50%;
+	position:absolute;
+	top:0;left:8%;
+	height:100%;
+	background:#222;
+	opacity: 0.9;
+	z-index:102;
+	border:1px solid #000
+	;-webkit-box-shadow:#000 0 0 6px;
+	padding:20px}
+div#metro-playlist h1{font-weight:400;margin-left:20px}
+div#metro-playlist ul#metro-playlist-tracks{list-style-type:none;margin:20px 0 0;padding:0}
+div#metro-playlist ul#metro-playlist-tracks li{cursor:pointer;text-indent:20px;margin:8px 0;padding:8px 0}
+div#metro-playlist ul#metro-playlist-tracks li p{ margin:0; padding:0}
+div#metro-playlist ul#metro-playlist-tracks li.selected{background:url(../img/bars.png) no-repeat 0 14px}
+div#metro-playlist ul#metro-playlist-tracks li:hover{color:#aaa}
+div#metro-playlist ul#metro-playlist-tracks li #playlist-song{font-size:19px}
+div#metro-playlist ul#metro-playlist-tracks li #playlist-artist{color:#999;font-size:14px}
+li#metro-time-lapse{float:right}
+img#metro-playlist-close{float:right;margin:10px 5px 0 0}
+div#metro-song-overview{min-width:200px;padding:20px}
+div#metro-song-overview h1{font-weight:400;padding-bottom:10px;border-bottom:1px solid #5f5f64}
+div#metro-song-overview ul{list-style-type:none;min-width:90%;margin:8px 0 0;padding:0}
+div#metro-song-overview ul li{display:block;padding:8px 0 1px}
+div#metro-song-overview p.label{color:#89898b;font-size:14px;margin-bottom:10px}
+div#metro-song-overview p.entry{font-size:20px;line-height:0}
+.metro-hidden{display:none}
+.jp-progress{margin-top:8%;margin-left:3%;width:85%;height:4px;background:#fff}
+.jp-play-bar{background:#aaa repeat-x;height:4px}
+div#metro-controls ul,div#metro-song-info ul{list-style-type:none;margin:0;padding:0}
